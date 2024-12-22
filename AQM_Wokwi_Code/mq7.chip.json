@@ -1,0 +1,17 @@
+{
+  "name": "mq7",
+  "author": "Misbah Juwayriyyah",
+  "pins": [
+    "VCC",
+    "GND",
+    "D0",
+    "A0","","",""
+  ],
+  "controls": [{
+      "id": "co_ppm",
+      "label": "PPM",
+      "type": "slider",
+      "min":10,
+      "max":10000
+    }]
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Shubham Verma",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -67.2, "left": -23.96, "attrs": {} },
+    { "type": "chip-mq135", "id": "chip1", "top": 49.02, "left": 120, "attrs": {} },
+    { "type": "chip-mq7", "id": "chip2", "top": -18.18, "left": 120, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -45.6,
+      "left": -113.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": 54.4,
+      "left": -388,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "chip1:GND", "black", [ "v0", "h9.6", "v105.6" ] ],
+    [ "esp:5V", "chip1:VCC", "red", [ "h0.15", "v19.2", "h115.2", "v-96" ] ],
+    [ "chip2:GND", "esp:GND.2", "black", [ "h-28.8", "v-38.4" ] ],
+    [ "chip2:VCC", "esp:5V", "red", [ "h-9.6", "v172.8", "h-134.55" ] ],
+    [ "bz1:1", "esp:GND.2", "black", [ "h-38.4", "v-115.2", "h201.6" ] ],
+    [ "bz1:2", "esp:33", "green", [ "v0" ] ],
+    [ "chip1:A0", "esp:34", "green", [ "h-153.6", "v-76.8" ] ],
+    [ "chip2:A0", "esp:35", "green", [ "h-19.2", "v-9.6" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "v-182.4", "h470.4", "v57.6" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-9.6", "v144.1", "h374.25" ] ],
+    [ "lcd1:SDA", "esp:23", "blue", [ "h-28.8", "v-211", "h547.2", "v76.8" ] ],
+    [ "lcd1:SCL", "esp:22", "blue", [ "h-19.2", "v-201.3", "h528", "v67.2" ] ]
+  ],
+  "dependencies": {}
+}
